@@ -11,19 +11,29 @@ import {
   FacebookIcon,
 } from "react-share";
 
-// 2023-02-11 수정
+// 2023-02-11 이후 추가된 import
 import styled from "styled-components";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useScript } from "../hooks/Kakao";
 import kakaoLogo from "../static/images/kakao.png";
+import MetaTag from "../helper/MetaTag";
+import Modal from "../components/Modal";
 
 function Result() {
   const navigate = useNavigate();
   const [kind, setKind] = useState();
   const [content, setContent] = useState();
   const [surmmary, setSurmmary] = useState();
+  const [similar, setSimilar] = useState();
+  const [worst, setWorst] = useState();
   const { mbti, setMbti, raw, setRaw } = useMbti();
   const [init, setInit] = useState(0);
+  const [ModalisOpen, setModalIsOpen] = useState(false);
+
+  // info modal
+  const onClickButton = () => {
+    setModalIsOpen(true);
+  };
 
   // 첫 화면이 공유 링크가 되도록 설정 (나중에는 배포한 도메인으로 수정예정)
   const shareUrl = window.location.href.replace("result", "");
@@ -39,17 +49,15 @@ function Result() {
       // 중복 initialization 방지
       if (!window.Kakao.isInitialized()) {
         // 두번째 step 에서 가져온 javascript key 를 이용하여 initialize
-        // 여기에 발급받은 카카오 javascript key 입력!
+        // init에 카카오 javascript key 입력
         window.Kakao.init("45cd70138fba6be56ebfff3df807aa7c");
       }
     }
   }, [status]);
 
-  // 카카오 공유 버튼 핸들러
-  // kakao 링크에서 제공하는 sendScrap 기능을 사용
-  const handleKakaoButton = () => {
-    window.Kakao.Link.sendScrap({
-      requestUrl: shareUrl,
+  const shareKakao = () => {
+    window.Kakao.Link.sendCustom({
+      templateId: 89914, // 템플릿 아이디 입력
     });
   };
 
@@ -69,10 +77,12 @@ function Result() {
         })
         .then((res) => {
           console.log(res);
-          setMbti(res.data.mbti); // mbti
+          setMbti(res.data.mbti); // mbti: mbti 유형
           setKind(res.data.kind.kind); // kind:개발자 유형
           setSurmmary(res.data.kind.surmmary); // summary:한줄 요약
           setContent(res.data.kind.content); // content:유형에 대한 설명
+          setSimilar(res.data.kind.similar); // similar: 가장 잘 맞는 유형
+          setWorst(res.data.kind.worst); // worst: 가장 잘 맞지 않는 유형
           setInit(1);
         })
         .catch((err) => err);
@@ -82,10 +92,12 @@ function Result() {
         .then((res) => {
           console.log(res);
 
-          setMbti(res.data.mbti); // mbti
+          setMbti(res.data.mbti); // mbti: mbti 유형
           setKind(res.data.kind.kind); // kind:개발자 유형
           setSurmmary(res.data.kind.surmmary); // summary:한줄 요약
           setContent(res.data.kind.content); // content:유형에 대한 설명
+          setSimilar(res.data.kind.similar); // similar: 가장 잘 맞는 유형
+          setWorst(res.data.kind.worst); // worst: 가장 잘 맞지 않는 유형
           setInit(1);
         })
         .catch((err) => err);
@@ -96,6 +108,7 @@ function Result() {
 
   return (
     <div className={styles.div}>
+      <MetaTag />
       {init ? (
         <>
           <div className={styles.surmmary}>{surmmary}</div>
@@ -104,18 +117,29 @@ function Result() {
           </div>
           <div className={styles.content_container}>
             <div className={styles.content}>{content}</div>
+            <Type>
+              <div className={styles.content}>
+                당신과 잘 맞는 유형은{" "}
+                <span className={styles.text_under2}>{similar}</span>입니다.
+              </div>
+              <div className={styles.content}>
+                당신과 잘 맞지 않는 유형은{" "}
+                <span className={styles.text_under2}>{worst}</span>입니다.
+              </div>
+            </Type>
           </div>
           <div className="button_group">
             <div>
               <button className={styles.button1} onClick={() => navigate("/")}>
-                RETRY
+                Retry
               </button>
-              {/* 누르면 다른 유형 보여주는 화면으로 이동? 일단 HOME으로 가도록 해둠 */}
-              <button className={styles.button1} onClick={() => navigate("/")}>
-                MORE
-              </button>
+
+              {/* <button className={styles.button1} onClick={Alert}>
+                share
+              </button> */}
             </div>
             <div>
+              {/* react modal 가운데에 뜨게 */}
               <FlexContainer>
                 <h1>공유하기</h1>
                 <GridContainer>
@@ -136,13 +160,26 @@ function Result() {
                   <CopyToClipboard text={shareUrl}>
                     <URLShareButton>URL</URLShareButton>
                   </CopyToClipboard>
-                  <KakaoShareButton onClick={handleKakaoButton}>
+                  <KakaoShareButton onClick={shareKakao}>
                     <KakaoIcon src={kakaoLogo}></KakaoIcon>
                   </KakaoShareButton>
                 </GridContainer>
               </FlexContainer>
             </div>
           </div>
+          {/* ===========추가 부분===================== */}
+          <ModalWrap>
+            <InfoButton onClick={onClickButton}>Info</InfoButton>
+            {ModalisOpen && (
+              <Modal
+                open={ModalisOpen}
+                onClose={() => {
+                  setModalIsOpen(false);
+                }}
+              />
+            )}
+          </ModalWrap>
+          {/* ===========추가 부분===================== */}
         </>
       ) : (
         <div className={styles.loading}>Now loading...</div>
@@ -193,4 +230,39 @@ const KakaoIcon = styled.img`
   width: 46.5px;
   height: 46.5px;
   border-radius: 24px;
+`;
+
+{
+  /* ------------------추가 부분--------------- */
+}
+
+const InfoButton = styled.button`
+  padding: 5px 15px;
+  border: 2px solid white;
+  background-color: transparent;
+  border-radius: 24px;
+  color: white;
+  cursor: pointer;
+  font-size: 2.5vw;
+  &:hover {
+    background-color: white;
+    color: black;
+    cursr: pointer;
+  }
+`;
+
+const ModalWrap = styled.div`
+  text-align: center;
+  position: absolute;
+  right: 3%;
+  bottom: 5%;
+`;
+
+{
+  /* ------------------추가 부분--------------- */
+}
+
+const Type = styled.div`
+  postion: flex;
+  margin-top: 10px;
 `;

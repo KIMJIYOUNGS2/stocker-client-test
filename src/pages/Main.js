@@ -3,10 +3,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Main.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFaceMehBlank, faFaceRollingEyes, faFaceSurprise } from "@fortawesome/free-regular-svg-icons";
+import {
+  faFaceMehBlank,
+  faFaceRollingEyes,
+  faFaceSurprise,
+} from "@fortawesome/free-regular-svg-icons";
 import { faUserTie } from "@fortawesome/free-solid-svg-icons";
 import useMbti from "../hooks/useMbti";
 import calculate from "../helper/calculate";
+import MetaTag from "../helper/MetaTag";
 
 function Main() {
   const navigate = useNavigate();
@@ -115,6 +120,7 @@ function Main() {
 
   return (
     <>
+      <MetaTag />
       <form className={styles.form} onSubmit={submit}>
         {init ? (
           <>
@@ -147,12 +153,30 @@ function Main() {
               </label>
             </div>
             {surveyId == totalSurvey ? (
-              <button className={styles.button} onClick={showResult} onMouseOver={() => setIsHovering(1)} onMouseOut={() => setIsHovering(0)}>
-                {isHovering ? <FontAwesomeIcon icon={faUserTie} /> : <FontAwesomeIcon icon={faFaceSurprise} />}
+              <button
+                className={styles.button}
+                onClick={showResult}
+                onMouseOver={() => setIsHovering(1)}
+                onMouseOut={() => setIsHovering(0)}
+              >
+                {isHovering ? (
+                  <FontAwesomeIcon icon={faUserTie} />
+                ) : (
+                  <FontAwesomeIcon icon={faFaceSurprise} />
+                )}
               </button>
             ) : (
-              <button className={styles.button} onClick={next} onMouseOver={() => setIsHovering(1)} onMouseOut={() => setIsHovering(0)}>
-                {isHovering ? <FontAwesomeIcon icon={faFaceRollingEyes} /> : <FontAwesomeIcon icon={faFaceMehBlank} />}
+              <button
+                className={styles.button}
+                onClick={next}
+                onMouseOver={() => setIsHovering(1)}
+                onMouseOut={() => setIsHovering(0)}
+              >
+                {isHovering ? (
+                  <FontAwesomeIcon icon={faFaceRollingEyes} />
+                ) : (
+                  <FontAwesomeIcon icon={faFaceMehBlank} />
+                )}
               </button>
             )}
           </>
@@ -161,7 +185,11 @@ function Main() {
         )}
       </form>
       <div className={styles.bg}></div>
-      {modal ? <div className={styles.modal}>당신은 선택해야만 합니다</div> : ""}
+      {modal ? (
+        <div className={styles.modal}>당신은 선택해야만 합니다</div>
+      ) : (
+        ""
+      )}
     </>
   );
 }

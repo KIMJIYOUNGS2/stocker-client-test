@@ -2,7 +2,7 @@
   margin: auto;
   height: 100vh;
   width: 100%;
-  padding: 10px;
+  /* padding: 10px; */
   overflow: scroll;
 }
 
@@ -39,6 +39,35 @@
   z-index: -1;
 }
 
+.text_under2 {
+  position: relative;
+}
+.text_under2::after {
+  content: "";
+  width: 100%;
+  height: 80%;
+  background: #09761b;
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  bottom: 3px;
+  z-index: -1;
+}
+
+.text_under3 {
+  position: relative;
+}
+.text_under3::after {
+  content: "";
+  width: 100%;
+  height: 80%;
+  background: #e7cb44;
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  bottom: 3px;
+  z-index: -1;
+}
 .desc {
   /* font-size: pt; */
   margin-top: 20px;
@@ -53,6 +82,7 @@
 .content {
   font-size: 2.5vw;
   margin-top: 3vw;
+  
   color: white;
   justify-content: center;
   line-height: 1.3em;

@@ -7,14 +7,17 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
 import { MbtiContextProvider } from "./hooks/Context";
+import { HelmetProvider } from "react-helmet-async";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 axios.defaults.baseURL = "https://kimduhong.pythonanywhere.com/";
 root.render(
   <BrowserRouter>
-    <MbtiContextProvider>
-      <App />
-    </MbtiContextProvider>
+    <HelmetProvider>
+      <MbtiContextProvider>
+        <App />
+      </MbtiContextProvider>
+    </HelmetProvider>
   </BrowserRouter>
 );
 
