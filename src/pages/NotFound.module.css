@@ -1,0 +1,40 @@
+.div {
+    margin-top: 10vh;
+    color: #8d0801;
+    text-align: center;
+    width: 100vw;
+    height: 90vh;
+    font-size: 3vw;
+  }
+  .button {
+    width: 5vw;
+    height: 5vw;
+    position: absolute;
+    left: 47.5vw;
+    border: 2px solid white;
+    border-radius: 50px;
+    font-size: 2vw;
+    background-color: black;
+    color: white;
+  }
+  .button:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  @media (orientation: portrait) {
+    .div {
+      font-size: 7vw;
+    }
+    .button {
+      width: 8vw;
+      height: 8vw;
+      position: absolute;
+      left: 46vw;
+      border: 2px solid white;
+      border-radius: 50px;
+      font-size: 4vw;
+      background-color: black;
+      color: white;
+    }
+  }

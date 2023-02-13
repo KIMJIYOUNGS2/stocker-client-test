@@ -1,8 +1,11 @@
 .div {
+  position: absolute;
+  top: 20vh;
+  left: 25vw;
   margin: auto;
-  margin-top: 18vw;
-  width: 50%;
-  height: 400px;
+  /* margin-top: 18vw; */
+  width: 50vw;
+  height: 60vh;
   text-align: center;
   color: #8d0801;
   font-size: 3vw;
@@ -15,6 +18,9 @@
 }
 
 .button {
+  position: fixed;
+  top: 60vh;
+  left: 46.5vw;
   width: 7vw;
   height: 4vw;
   border-radius: 30%;
@@ -29,4 +35,52 @@
   background-color: white;
   color: black;
   cursor: pointer;
+}
+.p {
+  color: #adb5bd;
+  font-size: 2vw;
+}
+
+.bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+@media (orientation: portrait) {
+  .div {
+    position: absolute;
+    left: 0px;
+    top: 20vh;
+    width: 100vw;
+    height: 60vh;
+    text-align: center;
+    color: #8d0801;
+    font-size: 11vw;
+    line-height: 1.5;
+  }
+  .h3 {
+    color: #adb5bd;
+    font-size: 6vw;
+  }
+  .p {
+    color: #adb5bd;
+    font-size: 6vw;
+  }
+  .button {
+    position: fixed;
+    top: 55vh;
+    left: 42vw;
+    width: 17vw;
+    height: 10vw;
+    border-radius: 30%;
+    margin-top: 10vw;
+    font-size: 7vw;
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+  }
 }

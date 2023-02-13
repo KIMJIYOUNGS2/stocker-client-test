@@ -113,7 +113,8 @@ function Result() {
         <>
           <div className={styles.surmmary}>{surmmary}</div>
           <div className={styles.header}>
-            당신은 <span className={styles.text_under}>{kind}</span> 유형입니다.
+            당신은 <span className={styles.text_under}>&nbsp;{kind}&nbsp;</span>{" "}
+            유형입니다.
           </div>
           <div className={styles.content_container}>
             <div className={styles.content}>{content}</div>
@@ -141,7 +142,6 @@ function Result() {
             <div>
               {/* react modal 가운데에 뜨게 */}
               <FlexContainer>
-                <h1>공유하기</h1>
                 <GridContainer>
                   <FacebookShareButton url={shareUrl}>
                     <FacebookIcon
@@ -264,5 +264,4 @@ const ModalWrap = styled.div`
 
 const Type = styled.div`
   postion: flex;
-  margin-top: 10px;
 `;

@@ -1,0 +1,17 @@
+.p {
+    display: inline-block;
+    width: auto;
+    color: #8d0801;
+    background-color: #e7cb44;
+    font-size: 2vw;
+  }
+  
+  @media (orientation: portrait) {
+    .p {
+      display: inline-block;
+      width: auto;
+      color: #8d0801;
+      background-color: #e7cb44;
+      font-size: 6vw;
+    }
+  }

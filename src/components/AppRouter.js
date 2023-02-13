@@ -4,7 +4,8 @@ import Home from "../pages/Home";
 import Intro from "../pages/Intro";
 import Main from "../pages/Main";
 import Result from "../pages/Result";
-import Epilogue from "../pages/Epilogue";
+import NotFound from "../pages/NotFound";
+
 function AppRouter() {
   return (
     <Routes>
@@ -12,7 +13,7 @@ function AppRouter() {
       <Route path="/intro" element={<Intro />} />
       <Route path="/main" element={<Main />} />
       <Route path="/result" element={<Result />} />
-      <Route path="/epilogue" element={<Epilogue />} />
+      <Route path="/*" element={<NotFound />} />
     </Routes>
   );
 }

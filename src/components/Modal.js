@@ -26,7 +26,7 @@ function Modal({ onClose }) {
           <LinkButton
             onClick={() =>
               window.open(
-                "https://www.notion.so/3-_-9017191387e84d70b27b6060481c7095"
+                "https://fluorescent-keyboard-35b.notion.site/Staff-f14b56045d624e1ba9974184be8019c3"
               )
             }
           >
