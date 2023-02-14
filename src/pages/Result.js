@@ -37,7 +37,7 @@ function Result() {
 
   // 첫 화면이 공유 링크가 되도록 설정 (나중에는 배포한 도메인으로 수정예정)
   const shareUrl = window.location.href.replace("result", "");
-  console.log(shareUrl);
+  // console.log(shareUrl);
 
   // kakao SDK import하기
   const status = useScript("https://developers.kakao.com/sdk/js/kakao.js");
@@ -70,13 +70,12 @@ function Result() {
     ) {
       setMbti(sessionStorage.getItem("mbti"));
       setRaw(sessionStorage.getItem("raw"));
-      console.log(sessionStorage.getItem("mbti"));
+      // console.log(sessionStorage.getItem("mbti"));
       axios
         .post(`api/v1/result/@${sessionStorage.getItem("mbti")}`, {
           answer: sessionStorage.getItem("raw"),
         })
         .then((res) => {
-          console.log(res);
           setMbti(res.data.mbti); // mbti: mbti 유형
           setKind(res.data.kind.kind); // kind:개발자 유형
           setSurmmary(res.data.kind.surmmary); // summary:한줄 요약
@@ -90,8 +89,6 @@ function Result() {
       axios
         .post(`api/v1/result/@${mbti}`, { answer: raw })
         .then((res) => {
-          console.log(res);
-
           setMbti(res.data.mbti); // mbti: mbti 유형
           setKind(res.data.kind.kind); // kind:개발자 유형
           setSurmmary(res.data.kind.surmmary); // summary:한줄 요약
@@ -231,11 +228,11 @@ const KakaoIcon = styled.img`
   height: 46.5px;
   border-radius: 24px;
 `;
+const Type = styled.div`
+  postion: flex;
+`;
 
-{
-  /* ------------------추가 부분--------------- */
-}
-
+// info modal css
 const InfoButton = styled.button`
   padding: 5px 15px;
   border: 2px solid white;
@@ -256,12 +253,4 @@ const ModalWrap = styled.div`
   position: absolute;
   right: 3%;
   bottom: 5%;
-`;
-
-{
-  /* ------------------추가 부분--------------- */
-}
-
-const Type = styled.div`
-  postion: flex;
 `;

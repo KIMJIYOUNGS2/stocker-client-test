@@ -32,7 +32,7 @@ function Modal({ onClose }) {
           >
             팀 소개 페이지 >
           </LinkButton>
-          {/* <CloseButton onClick={handleClose}>Close</CloseButton> */}
+          <CloseButton onClick={handleClose}>x</CloseButton>
         </Contents>
       </ModalWrap>
     </Overlay>
@@ -52,7 +52,7 @@ const Overlay = styled.div`
 `;
 
 const ModalWrap = styled.div`
-  width: 30%;
+  width: 400px;
   height: fit-content;
   border-radius: 15px;
   border: 5px solid blue;
@@ -74,7 +74,7 @@ const Contents = styled.div`
 `;
 
 const Content = styled.div`
-  width: 70%;
+  width: 330px;
   font-family: initial;
   font-size: 1.2rem;
 `;
@@ -84,8 +84,8 @@ const BoldText = styled.p`
 `;
 const LinkButton = styled.button`
   margin: 8%;
-  width: 70%;
-  height: 4vw;
+  width: 280px;
+  height: 50px;
   margin-bottom: 0;
   border-radius: 10px;
   background-color: blue;
@@ -99,13 +99,15 @@ const LinkButton = styled.button`
 `;
 const CloseButton = styled.button`
   position: absolute;
-  bottom: 0;
-  right: 0;
-
-  font-size: 1.5rem;
+  top: 0;
+  right: 18px;
+  background-color: transparent;
+  color: gray;
+  font-size: 30px;
   margin: 5% 4%;
-  width: 20%;
-  border-radius: 10px;
+  width: 10px;
+  // border-radius: 10px;
+  border: none;
   cursor: pointer;
   &:hover {
     background-color: black;
