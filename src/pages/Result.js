@@ -119,22 +119,37 @@ function Result() {
           <div className={styles.content_container}>
             <div className={styles.content}>{content}</div>
             {/* <Type> */}
-            <div className={styles.content}>
-              당신과 잘 맞는 유형은{" "}
-              <span className={styles.text_under2}>{similar}</span>입니다.
-            </div>
-            <div className={styles.content}>
-              당신과 잘 맞지 않는 유형은{" "}
-              <span className={styles.text_under2}>{worst}</span>입니다.
+            <div className={styles.kind}>
+              <div className={styles.othercontent}>
+                당신과 잘 맞는 유형은 <br />
+                <span className={styles.text_under2}>{similar}</span>입니다.
+              </div>
+              <div className={styles.othercontent}>
+                당신과 잘 맞지 않는 유형은 <br />
+                <span className={styles.text_under2}>{worst}</span>입니다.
+              </div>
             </div>
             {/* </Type> */}
           </div>
 
-          <div className="button_group">
-            <div>
+          <div className={styles.button_group}>
+            <div className={styles.group1}>
               <button className={styles.button1} onClick={() => navigate("/")}>
                 Retry
               </button>
+              <ModalWrap>
+                <button className={styles.button1} onClick={onClickButton}>
+                  Info
+                </button>
+                {ModalisOpen && (
+                  <Modal
+                    open={ModalisOpen}
+                    onClose={() => {
+                      setModalIsOpen(false);
+                    }}
+                  />
+                )}
+              </ModalWrap>
             </div>
             <div>
               <FlexContainer>
@@ -153,9 +168,6 @@ function Result() {
                       borderRadius={24}
                     ></TwitterIcon>
                   </TwitterShareButton>
-                  <CopyToClipboard text={shareUrl}>
-                    <URLShareButton>URL</URLShareButton>
-                  </CopyToClipboard>
                   <KakaoShareButton onClick={shareKakao}>
                     <KakaoIcon src={kakaoLogo}></KakaoIcon>
                   </KakaoShareButton>
@@ -164,17 +176,6 @@ function Result() {
             </div>
           </div>
           {/* info modal */}
-          <ModalWrap>
-            <InfoButton onClick={onClickButton}>Info</InfoButton>
-            {ModalisOpen && (
-              <Modal
-                open={ModalisOpen}
-                onClose={() => {
-                  setModalIsOpen(false);
-                }}
-              />
-            )}
-          </ModalWrap>
         </>
       ) : (
         <div className={styles.loading}>Now loading...</div>
@@ -196,18 +197,20 @@ const FlexContainer = styled.div`
 
 // 버튼을 배치시키는 컨테이너
 const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 48px);
-  grid-column-gap: 8px;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  width: 20%;
+  justify-content: space-around;
+  align-items: space-around;
   margin-top: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+  @media (orientation: portrait) {
+    width: 60%;
+  }
 `;
 
 const URLShareButton = styled.button`
   width: 46.5px;
-  height: 46.5px;
+  height: 48.5px;
   color: white;
   border-radius: 24px;
   border: 0px;
@@ -227,31 +230,13 @@ const KakaoIcon = styled.img`
   height: 46.5px;
   border-radius: 24px;
 `;
+
 const Type = styled.div`
   postion: flex;
 `;
 // 미디어 쿼리
 
-// info modal css
-const InfoButton = styled.button`
-  padding: 5px 15px;
-  border: 2px solid white;
-  background-color: transparent;
-  border-radius: 24px;
-  color: white;
-  cursor: pointer;
-  font-size: 2.5vw;
-  &:hover {
-    background-color: white;
-    color: black;
-    cursr: pointer;
-  }
-`;
-
 const ModalWrap = styled.div`
   text-align: center;
-  position: absolute;
-  right: 3%;
-  bottom: 5%;
   z-index: 1;
 `;

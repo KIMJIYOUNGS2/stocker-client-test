@@ -1,15 +1,34 @@
 .div {
+  /* position: absolute; */
+  width: 90vw;
+  /* top:0; */
+  /* top: 10vh; */
   margin: auto;
-  height: 100vh;
-  width: 100%;
+  /* left: 5vw; */
+  /* right: 3vw; */
+  font-size: 3vw;
   overflow: scroll;
 }
 
+.bg {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+  z-index: -1;
+}
 .surmmary {
   color: #8d0801;
   justify-content: center;
+  width: 90vw;
   font-size: 3vw;
   margin-top: 10px;
+} 
+
+.kind {
+  display: flex;
 }
 
 .header {
@@ -22,14 +41,6 @@
   color: #8d0801;
 }
 
-.bg {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  opacity: 0.5;
-  z-index: -1;
-}
 /* 개발자 유형 부분 색 다르게 */
 .text_under {
   position: relative;
@@ -92,7 +103,15 @@
   margin: 1vw;
   color: white;
   justify-content: center;
-  line-height: 1.3em;
+  line-height: 6.5vh;
+}
+.othercontent {
+  width: 50%;
+  font-size: 2.5vw;
+  margin: 1vw;
+  color: white;
+  justify-content: center;
+  line-height: 6.5vh;
 }
 
 /* button */
@@ -121,30 +140,42 @@
 
 .button_group{
   display: flex;
+  flex-direction: column;
   margin-top: 10px;
 }
-
+.group1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .loading {
   font-size: 5vw;
   color: white;
   margin-top: 20vw;
 }
 
+::-webkit-scrollbar{
+  display: none;
+}
 /* 미디어쿼리 */
 
 @media (orientation: portrait) {
   .div {
-    margin: auto;
-    height: 100%;
-    width: 100%;
-    overflow: scroll;
+  top:0;
+  /* top: 10vh; */
+  width: 100%;
+  margin: auto;
+  /* left: 5vw; */
+  /* right: 3vw; */
+  font-size: 3vw;
+  overflow: scroll;
   }
   
   .surmmary {
     color: #8d0801;
-    justify-content: center;
+    margin: auto;
     font-size: 5vw;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 10px;
   }
   
@@ -218,7 +249,8 @@
   }
   
   .content_container {
-    margin: 5px 5px 15px 15px; /* 상하좌우 */
+    margin: 3vh;
+    margin-bottom: 0;
     padding: 5px;
   }
   
@@ -228,14 +260,22 @@
     color: white;
     justify-content: center;
     line-height: 2em;
+    
   }
-  
+  .othercontent {
+    width: 50%;
+    font-size: 4.2vw;
+    margin: 1vw;
+    color: white;
+    justify-content: center;
+    line-height: 6.5vh;
+  }
   /* button */
   .button1 {
     width: 20vw;
     height: 10vw;
     border-radius: 30%;
-    margin:1vw;
+    margin:3vw;
     font-size: 7vw;
     background-color: black;
     border: 2px solid white;
@@ -255,13 +295,16 @@
   }
   
   .button_group{
-    display: flex;
-    margin-top: 50vw;
+    margin-top: 0px;
   }
   
   .loading {
     font-size: 5vw;
     color: white;
     margin-top: 20vw;
+  }
+
+  ::-webkit-scrollbar{
+    display: none;
   }
 }
