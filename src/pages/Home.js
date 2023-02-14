@@ -32,10 +32,10 @@ function Home() {
             <br />- 당신의 선택으로 알아보는 개발자 성향 -
           </h3>
           <br />
-          {!userCount == 0 ? <Counter count={userCount} /> : ""}
           <button className={styles.button} onClick={start}>
             Start
           </button>
+          {!userCount == 0 ? <Counter count={userCount} /> : ""}
         </div>
       ) : (
         ""

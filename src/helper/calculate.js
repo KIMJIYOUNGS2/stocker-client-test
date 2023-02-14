@@ -13,14 +13,14 @@ function calculate(totalResult) {
   //   totalResult[6] == "1" ? (calculation.j += 1) : (calculation.p += 1);
   totalResult[7] == "1" ? (calculation.j += 1) : (calculation.p += 1);
   totalResult[8] == "1" ? (calculation.n += 1) : (calculation.s += 1);
-  console.log(calculation);
+  // console.log(calculation);
 
   calculation.e > calculation.i ? (raw += "e") : (raw += "i");
   calculation.n >= calculation.s ? (raw += "n") : (raw += "s");
   calculation.f > calculation.t ? (raw += "f") : (raw += "t");
   calculation.j > calculation.p ? (raw += "j") : (raw += "p");
 
-  console.log(raw);
+  // console.log(raw);
   sessionStorage.setItem("mbti", raw);
 
   return raw;

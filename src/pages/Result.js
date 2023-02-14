@@ -176,11 +176,11 @@ function Result() {
               />
             )}
           </ModalWrap>
-          {/* ===========추가 부분===================== */}
         </>
       ) : (
         <div className={styles.loading}>Now loading...</div>
       )}
+      <div className={styles.bg}></div>
     </div>
   );
 }

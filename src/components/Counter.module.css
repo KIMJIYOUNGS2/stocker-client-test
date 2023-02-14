@@ -1,8 +1,11 @@
 .p {
+    position: absolute;
+    top: 60vh;
+    left: 18vw;
     display: inline-block;
     width: auto;
-    color: #8d0801;
-    background-color: #e7cb44;
+    color: #adb5bd;
+    /* background-color: #e7cb44; */
     font-size: 2vw;
   }
   
@@ -10,8 +13,9 @@
     .p {
       display: inline-block;
       width: auto;
-      color: #8d0801;
-      background-color: #e7cb44;
+      color: #adb5bd;
+      /* background-color: #e7cb44; */
       font-size: 6vw;
+      left: 31vw;
     }
   }

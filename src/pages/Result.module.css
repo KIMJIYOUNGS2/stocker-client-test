@@ -21,7 +21,14 @@
   align-items: center;
   color: #8d0801;
 }
-
+.bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 0;
+}
 /* 개발자 유형 부분 색 다르게 */
 .text_under {
   position: relative;
@@ -123,3 +130,16 @@
   margin-top: 20vw;
 }
 
+@media (orientation: portrait) {
+  .form {
+    position: absolute;
+    width: 90vw;
+    height: 60vh;
+    top: 15vh;
+    left: 5vw;
+    font-size: 4.5vw;
+    /* background-color: green; */
+    line-height: 2;
+    z-index: 10;
+  }
+}
