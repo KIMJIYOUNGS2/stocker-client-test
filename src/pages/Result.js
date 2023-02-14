@@ -106,38 +106,37 @@ function Result() {
   return (
     <div className={styles.div}>
       <MetaTag />
+      <div className={styles.bg}></div>
       {init ? (
         <>
           <div className={styles.surmmary}>{surmmary}</div>
+
           <div className={styles.header}>
             당신은 <span className={styles.text_under}>&nbsp;{kind}&nbsp;</span>{" "}
             유형입니다.
           </div>
+
           <div className={styles.content_container}>
             <div className={styles.content}>{content}</div>
-            <Type>
-              <div className={styles.content}>
-                당신과 잘 맞는 유형은{" "}
-                <span className={styles.text_under2}>{similar}</span>입니다.
-              </div>
-              <div className={styles.content}>
-                당신과 잘 맞지 않는 유형은{" "}
-                <span className={styles.text_under2}>{worst}</span>입니다.
-              </div>
-            </Type>
+            {/* <Type> */}
+            <div className={styles.content}>
+              당신과 잘 맞는 유형은{" "}
+              <span className={styles.text_under2}>{similar}</span>입니다.
+            </div>
+            <div className={styles.content}>
+              당신과 잘 맞지 않는 유형은{" "}
+              <span className={styles.text_under2}>{worst}</span>입니다.
+            </div>
+            {/* </Type> */}
           </div>
+
           <div className="button_group">
             <div>
               <button className={styles.button1} onClick={() => navigate("/")}>
                 Retry
               </button>
-
-              {/* <button className={styles.button1} onClick={Alert}>
-                share
-              </button> */}
             </div>
             <div>
-              {/* react modal 가운데에 뜨게 */}
               <FlexContainer>
                 <GridContainer>
                   <FacebookShareButton url={shareUrl}>
@@ -164,7 +163,7 @@ function Result() {
               </FlexContainer>
             </div>
           </div>
-          {/* ===========추가 부분===================== */}
+          {/* info modal */}
           <ModalWrap>
             <InfoButton onClick={onClickButton}>Info</InfoButton>
             {ModalisOpen && (
@@ -180,7 +179,6 @@ function Result() {
       ) : (
         <div className={styles.loading}>Now loading...</div>
       )}
-      <div className={styles.bg}></div>
     </div>
   );
 }
@@ -193,6 +191,7 @@ const FlexContainer = styled.div`
   flex-direction: column;
   align-items: center;
   color: white;
+  margin-top: 10px;
 `;
 
 // 버튼을 배치시키는 컨테이너
@@ -253,4 +252,5 @@ const ModalWrap = styled.div`
   position: absolute;
   right: 3%;
   bottom: 5%;
+  z-index: 1;
 `;

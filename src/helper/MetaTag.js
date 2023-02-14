@@ -11,7 +11,7 @@ const MetaTag = () => {
         href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
         rel="stylesheet"
       />
-      <meta property="og:url" content="https://project-worldcup.netlify.app/" />
+      <meta property="og:url" content="url" />
       <meta property="og:title" content="스토커J에 대하여" />
       <meta property="og:type" content="website" />
       <meta

@@ -52,7 +52,7 @@ const Overlay = styled.div`
 `;
 
 const ModalWrap = styled.div`
-  width: 400px;
+  width: 30%;
   height: fit-content;
   border-radius: 15px;
   border: 5px solid blue;
@@ -62,21 +62,26 @@ const ModalWrap = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media (orientation: portrait) {
+    width: 60%;
+  }
 `;
 
 const Contents = styled.div`
   display: flex;
   flex-direction: column;
   margin: 15% 3%;
-  white-space: pre-line;
   align-items: center;
   word-spacing: 1px;
 `;
 
 const Content = styled.div`
-  width: 330px;
+  width: 100%;
   font-family: initial;
   font-size: 1.2rem;
+  @media (orientation: portrait) {
+    font-size: 0.6rem;
+  }
 `;
 const BoldText = styled.p`
   margin: 5%;
@@ -84,7 +89,7 @@ const BoldText = styled.p`
 `;
 const LinkButton = styled.button`
   margin: 8%;
-  width: 280px;
+  width: 80%;
   height: 50px;
   margin-bottom: 0;
   border-radius: 10px;
@@ -95,6 +100,10 @@ const LinkButton = styled.button`
   &:hover {
     background-color: black;
     color: white;
+  }
+  @media (orientation: portrait) {
+    height: 3vh;
+    font-size: 0.4rem;
   }
 `;
 const CloseButton = styled.button`
