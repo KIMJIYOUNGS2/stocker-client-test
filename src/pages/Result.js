@@ -230,6 +230,7 @@ const KakaoIcon = styled.img`
 const Type = styled.div`
   postion: flex;
 `;
+// 미디어 쿼리
 
 // info modal css
 const InfoButton = styled.button`

@@ -39,6 +39,7 @@ function Modal({ onClose }) {
   );
 }
 
+// ssasd
 const Overlay = styled.div`
   position: fixed;
   width: 100%;
@@ -52,7 +53,7 @@ const Overlay = styled.div`
 `;
 
 const ModalWrap = styled.div`
-  width: 30%;
+  width: 400px;
   height: fit-content;
   border-radius: 15px;
   border: 5px solid blue;
@@ -63,7 +64,7 @@ const ModalWrap = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   @media (orientation: portrait) {
-    width: 60%;
+    width: 70%;
   }
 `;
 
@@ -71,16 +72,18 @@ const Contents = styled.div`
   display: flex;
   flex-direction: column;
   margin: 15% 3%;
+  white-space: pre-line;
   align-items: center;
   word-spacing: 1px;
 `;
 
 const Content = styled.div`
-  width: 100%;
+  width: 330px;
   font-family: initial;
   font-size: 1.2rem;
   @media (orientation: portrait) {
-    font-size: 0.6rem;
+    font-size: 3vw;
+    width: 90%;
   }
 `;
 const BoldText = styled.p`
@@ -89,7 +92,7 @@ const BoldText = styled.p`
 `;
 const LinkButton = styled.button`
   margin: 8%;
-  width: 80%;
+  width: 280px;
   height: 50px;
   margin-bottom: 0;
   border-radius: 10px;
@@ -102,8 +105,9 @@ const LinkButton = styled.button`
     color: white;
   }
   @media (orientation: portrait) {
-    height: 3vh;
-    font-size: 0.4rem;
+    width: 70%;
+    height: 4vh;
+    font-size: 2vw;
   }
 `;
 const CloseButton = styled.button`
