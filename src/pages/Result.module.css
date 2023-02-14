@@ -141,7 +141,8 @@
 .button_group{
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  justify-content: center;
+  margin-top: -60px;
 }
 .group1{
   display: flex;
