@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 function Modal({ onClose }) {
   const handleClose = (e) => {
-    console.log(e.target);
+    // console.log(e.target);
     onClose?.();
   };
   return (
@@ -21,7 +21,7 @@ function Modal({ onClose }) {
           <LinkButton
             onClick={() => window.open("https://ozcodingschool.com/")}
           >
-            오즈코딩스쿨 알아보기 >
+            오즈코딩스쿨 알아보기 &gt;
           </LinkButton>
           <LinkButton
             onClick={() =>
@@ -30,7 +30,7 @@ function Modal({ onClose }) {
               )
             }
           >
-            팀 소개 페이지 >
+            팀 소개 페이지 &gt;
           </LinkButton>
           <CloseButton onClick={handleClose}>x</CloseButton>
         </Contents>
@@ -103,6 +103,8 @@ const LinkButton = styled.button`
   &:hover {
     background-color: black;
     color: white;
+    cursor: pointer;
+    border: 1px solid white;
   }
   @media (orientation: portrait) {
     width: 70%;

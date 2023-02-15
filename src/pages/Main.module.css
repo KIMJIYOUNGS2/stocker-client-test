@@ -113,24 +113,24 @@
   }
   .button {
     position: absolute;
-    left: 40vw;
+    left: 41vw;
     top: 45vh;
     background-color: transparent;
     color: white;
     border: none;
     font-size: 8vw;
+    text-align: center;
     line-height: 4vw;
-    width: 4vw;
-    height: 4vw;
+    width: 8vw;
+    height: 8vw;
   }
   .h2 {
     line-height: 2;
   }
   .loading {
     position: absolute;
-    top: 25vh;
-    left: 40vw;
     width: 100vw;
+    height: 100vh;
     font-size: 10vw;
     color: white;
   }

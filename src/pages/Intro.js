@@ -7,7 +7,7 @@ import {
   faMobileScreen,
   faDoorClosed,
   faDoorOpen,
-  faArrowDown,
+  faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Intro() {
@@ -47,6 +47,10 @@ function Intro() {
     setDisplay(script[num]); //script array에서 index에 해당하는 값이 디스플레이 됨
     setIsHovering(0);
   }, [num, script]);
+
+  const skip = () => {
+    navigate("/main");
+  };
   // console.log(isClicked);
 
   // useEffect(() => {
@@ -84,12 +88,15 @@ function Intro() {
             <FontAwesomeIcon icon={faMobileScreen} />
           </button>
           <span className={styles.click}>
-            <FontAwesomeIcon icon={faArrowDown} />
+            <FontAwesomeIcon icon={faArrowUp} />
             <br />
             click
           </span>
         </>
       )}
+      <button className={styles.skip} onClick={skip}>
+        &gt; 스토리 건너뛰기
+      </button>
     </div>
   );
 }

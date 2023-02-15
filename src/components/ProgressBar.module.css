@@ -1,97 +1,97 @@
 .progress {
-    position: fixed;
+  position: fixed;
+  width: 90vw;
+  height: 5vw;
+  top: 80vh;
+  line-height: 5vw;
+  left: 5vw;
+  font-size: 3vw;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress2 {
+  width: 80vw;
+  left: 15vw;
+}
+.progress3 {
+  width: 70vw;
+  left: 25vw;
+}
+.progress4 {
+  width: 60vw;
+  left: 35vw;
+}
+.progress5 {
+  width: 50vw;
+  left: 45vw;
+}
+.progress6 {
+  width: 40vw;
+  left: 55vw;
+}
+.progress7 {
+  width: 30vw;
+  left: 65vw;
+}
+.progress8 {
+  width: 20vw;
+  left: 75vw;
+}
+.progress9 {
+  width: 10vw;
+  left: 85vw;
+}
+
+.pin {
+  font-size: 1vw;
+  line-height: 5vw;
+}
+
+@media (orientation: portrait) {
+  .progress {
+    position: absolute;
     width: 90vw;
     height: 5vw;
-    top: 80vh;
+    top: 60vh;
     line-height: 5vw;
-    left: 5vw;
-    font-size: 3vw;
+    left: 0;
+    font-size: 7vw;
     color: white;
     display: flex;
     justify-content: space-between;
   }
-  
   .progress2 {
     width: 80vw;
-    left: 15vw;
+    left: 10vw;
   }
   .progress3 {
     width: 70vw;
-    left: 25vw;
+    left: 20vw;
   }
   .progress4 {
     width: 60vw;
-    left: 35vw;
+    left: 30vw;
   }
   .progress5 {
     width: 50vw;
-    left: 45vw;
+    left: 40vw;
   }
   .progress6 {
     width: 40vw;
-    left: 55vw;
+    left: 50vw;
   }
   .progress7 {
     width: 30vw;
-    left: 65vw;
+    left: 60vw;
   }
   .progress8 {
     width: 20vw;
-    left: 75vw;
+    left: 70vw;
   }
   .progress9 {
     width: 10vw;
-    left: 85vw;
+    left: 80vw;
   }
-  
-  .pin {
-    font-size: 1vw;
-    line-height: 5vw;
-  }
-  
-  @media (orientation: portrait) {
-    .progress {
-      position: fixed;
-      width: 90vw;
-      height: 5vw;
-      top: 65vh;
-      line-height: 5vw;
-      left: 5vw;
-      font-size: 7vw;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-    }
-    .progress2 {
-      width: 80vw;
-      left: 15vw;
-    }
-    .progress3 {
-      width: 70vw;
-      left: 25vw;
-    }
-    .progress4 {
-      width: 60vw;
-      left: 35vw;
-    }
-    .progress5 {
-      width: 50vw;
-      left: 45vw;
-    }
-    .progress6 {
-      width: 40vw;
-      left: 55vw;
-    }
-    .progress7 {
-      width: 30vw;
-      left: 65vw;
-    }
-    .progress8 {
-      width: 20vw;
-      left: 75vw;
-    }
-    .progress9 {
-      width: 10vw;
-      left: 85vw;
-    }
-  }
+}

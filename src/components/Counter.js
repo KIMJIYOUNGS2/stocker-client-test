@@ -28,7 +28,7 @@ function Counter({ count }) {
   };
   useEffect(() => {
     setTimeout(() => counter(count + 1000), 500);
-  }, []);
+  }, [count]);
   return <p className={styles.p}>누적참여자수 : {userCount}</p>;
 }
 

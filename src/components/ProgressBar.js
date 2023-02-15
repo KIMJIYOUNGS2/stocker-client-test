@@ -20,8 +20,8 @@ function ProgressBar({ surveyId }) {
 
   useEffect(() => {
     switch (surveyId) {
-      //   case 1:
-      //     return setStyle(styles.progress1);
+      default:
+        return setStyle(styles.progress1);
       case 2:
         return setStyle(styles.progress2);
       case 3:

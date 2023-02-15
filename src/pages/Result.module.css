@@ -1,11 +1,6 @@
 .div {
-  /* position: absolute; */
   width: 90vw;
-  /* top:0; */
-  /* top: 10vh; */
   margin: auto;
-  /* left: 5vw; */
-  /* right: 3vw; */
   font-size: 3vw;
   overflow: scroll;
 }
@@ -19,18 +14,22 @@
   opacity: 0.5;
   z-index: -1;
 }
+
+/* summary:한줄 요약 */
 .surmmary {
   color: #8d0801;
   justify-content: center;
   width: 90vw;
   font-size: 3vw;
   margin-top: 10px;
-} 
+}
 
+/* kind:개발자 유형 */
 .kind {
   display: flex;
 }
 
+/* header */
 .header {
   margin-top: 10px;
   margin-bottom: 1vw;
@@ -41,10 +40,11 @@
   color: #8d0801;
 }
 
-/* 개발자 유형 부분 색 다르게 */
+/* 개발자 유형 나오는 부분 강조 */
 .text_under {
   position: relative;
 }
+
 .text_under::after {
   content: "";
   width: 100%;
@@ -57,9 +57,11 @@
   z-index: -1;
 }
 
+/* similar  */
 .text_under2 {
   position: relative;
 }
+
 .text_under2::after {
   content: "";
   width: 100%;
@@ -72,9 +74,11 @@
   z-index: -1;
 }
 
+/* worst */
 .text_under3 {
   position: relative;
 }
+
 .text_under3::after {
   content: "";
   width: 100%;
@@ -86,17 +90,18 @@
   bottom: 3px;
   z-index: -1;
 }
+
 .desc {
-  /* font-size: pt; */
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
+/* 내용 부분 container */
 .content_container {
   margin: 5px 15px 15px 15px; /* 상하좌우 */
-  /* padding: 20px; */
 }
 
+/* content */
 .content {
   font-size: 2.5vw;
   margin-top: 1.5vw;
@@ -105,6 +110,8 @@
   justify-content: center;
   line-height: 6.5vh;
 }
+
+/* similar & worst content */
 .othercontent {
   width: 50%;
   font-size: 2.5vw;
@@ -114,19 +121,53 @@
   line-height: 6.5vh;
 }
 
-/* button */
+/* button CSS --------------------------------------------- */
+@-webkit-keyframes blink {
+  0% {
+    background-color: black;
+  }
+  100% {
+    background-color: #8d0801;
+  }
+}
+@keyframes blink {
+  0% {
+    background-color: black;
+  }
+  100% {
+    background-color: #8d0801;
+  }
+}
 .button1 {
   width: 7vw;
   height: 4vw;
   border-radius: 30%;
-  margin:1vw;
+  margin: 1vw;
+  font-size: 2.5vw;
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-name: blink;
+  animation-name: blink;
+  animation-direction: alternate;
+  -webkit-animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+.button2 {
+  width: 7vw;
+  height: 4vw;
+  border-radius: 30%;
+  margin: 1vw;
   font-size: 2.5vw;
   background-color: black;
   border: 2px solid white;
   color: white;
 }
 
-.button1:hover {
+.button1:hover,
+.button2:hover {
   background-color: white;
   color: black;
   cursor: pointer;
@@ -138,40 +179,72 @@
   margin-top: 20px;
 }
 
-.button_group{
+.button_group {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: -60px;
+  margin-top: -100px;
 }
-.group1{
+
+.group1 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .loading {
+  width: 10vw;
   font-size: 5vw;
   color: white;
   margin-top: 20vw;
+  margin-left: 40vw;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
-/* 미디어쿼리 */
 
+.info {
+  color: white;
+  font-size: 2vw;
+}
+
+/* container CSS --------------------------------------------- */
+/* 제목과 버튼을 감싸는 컨테이너 */
+.flex_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  margin-top: 10px;
+}
+
+/* 버튼을 배치시키는 컨테이너 */
+.grid_container {
+  display: flex;
+  width: 20%;
+  justify-content: space-around;
+  align-items: space-around;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* modal CSS --------------------------------------------- */
+.modalwrap {
+  text-align: center;
+  z-index: 1;
+}
+
+/* 미디어쿼리 --------------------------------------------- */
 @media (orientation: portrait) {
   .div {
-  top:0;
-  /* top: 10vh; */
-  width: 100%;
-  margin: auto;
-  /* left: 5vw; */
-  /* right: 3vw; */
-  font-size: 3vw;
-  overflow: scroll;
+    top: 0;
+    width: 100%;
+    margin: auto;
+    font-size: 3vw;
+    overflow: scroll;
   }
-  
+
   .surmmary {
     color: #8d0801;
     margin: auto;
@@ -179,7 +252,7 @@
     margin-top: 20px;
     margin-bottom: 10px;
   }
-  
+
   .header {
     margin-top: 30px;
     font-size: 5vw;
@@ -191,6 +264,7 @@
 
   .bg {
     position: absolute;
+    /* display: none; */
     width: 100vw;
     height: 100vh;
     background-color: black;
@@ -198,10 +272,10 @@
     z-index: -1;
   }
 
-  /* 개발자 유형 부분 색 다르게 */
   .text_under {
     position: relative;
   }
+
   .text_under::after {
     content: "";
     width: 100%;
@@ -213,7 +287,7 @@
     bottom: 3px;
     z-index: -1;
   }
-  
+
   .text_under2 {
     position: relative;
   }
@@ -228,10 +302,11 @@
     bottom: 3px;
     z-index: -1;
   }
-  
+
   .text_under3 {
     position: relative;
   }
+
   .text_under3::after {
     content: "";
     width: 100%;
@@ -243,25 +318,24 @@
     bottom: 3px;
     z-index: -1;
   }
+
   .desc {
-    /* font-size: pt; */
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  
+
   .content_container {
     margin: 3vh;
     margin-bottom: 0;
     padding: 5px;
   }
-  
+
   .content {
     font-size: 4.2vw;
     margin-top: 1.5vw;
     color: white;
     justify-content: center;
     line-height: 2em;
-    
   }
   .othercontent {
     width: 50%;
@@ -271,41 +345,78 @@
     justify-content: center;
     line-height: 6.5vh;
   }
-  /* button */
+
+  /* button CSS --------------------------------------------- */
   .button1 {
     width: 20vw;
     height: 10vw;
     border-radius: 30%;
-    margin:3vw;
+    margin: 3vw;
+    font-size: 7vw;
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-name: blink;
+    animation-name: blink;
+    animation-direction: alternate;
+    -webkit-animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+
+  .button2 {
+    width: 20vw;
+    height: 10vw;
+    border-radius: 30%;
+    margin: 3vw;
     font-size: 7vw;
     background-color: black;
     border: 2px solid white;
     color: white;
   }
-  
-  .button1:hover {
+
+  .button1:hover,
+  .button2:hover {
     background-color: white;
     color: black;
     cursor: pointer;
   }
-  
+
   .social_btn {
     display: flex;
     flex-direction: row;
     margin-top: 20px;
   }
-  
-  .button_group{
+
+  .button_group {
     margin-top: 0px;
   }
-  
-  .loading {
-    font-size: 5vw;
-    color: white;
-    margin-top: 20vw;
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 
-  ::-webkit-scrollbar{
-    display: none;
+  .loading {
+    width: 10vw;
+    font-size: 5vw;
+    color: white;
+    margin-top: 40vh;
+    margin-left: 45vw;
+  }
+
+  .info {
+    color: white;
+    font-size: 5vw;
+    margin-top: 5vw;
+  }
+
+  .grid_container {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    align-items: space-around;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
