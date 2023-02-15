@@ -111,7 +111,7 @@
   animation-name: vibrate;
   animation-direction: alternate;
   -webkit-animation-direction: alternate;
-  animation-iteration-count: 10;
+  animation-iteration-count: infinite;
   cursor: pointer;
 
   animation-fill-mode: forwards;
@@ -131,6 +131,14 @@
   border-radius: 20px;
   box-shadow: 5px 10px 8px #101010;
   z-index: 5;
+}
+
+.click {
+  position: absolute;
+  color: white;
+  top: 34vw;
+  left: 47.9vw;
+  font-size: 2vw;
 }
 
 @media (orientation: portrait) {
@@ -195,7 +203,7 @@
     animation-name: vibrate;
     animation-direction: alternate;
     -webkit-animation-direction: alternate;
-    animation-iteration-count: 10;
+    animation-iteration-count: infinite;
     cursor: pointer;
     animation-fill-mode: forwards;
   }
@@ -220,5 +228,13 @@
     border-radius: 20px;
     box-shadow: 5px 10px 8px #101010;
     z-index: 5;
+  }
+
+  .click {
+    position: absolute;
+    color: white;
+    top: 46vh;
+    left: 45.8vw;
+    font-size: 6vw;
   }
 }
