@@ -13,7 +13,6 @@ import {
 
 // 2023-02-11 이후 추가된 import
 import styled from "styled-components";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useScript } from "../hooks/Kakao";
 import kakaoLogo from "../static/images/kakao.png";
 import MetaTag from "../helper/MetaTag";
@@ -44,6 +43,7 @@ function Result() {
 
   // kakao sdk 초기화하기
   // status가 변경될 때마다 실행되며, status가 ready일 때 초기화를 시도
+  // 페이지 진입 시 kakao initialize
   useEffect(() => {
     if (status === "ready" && window.Kakao) {
       // 중복 initialization 방지
@@ -55,9 +55,11 @@ function Result() {
     }
   }, [status]);
 
+  // 템플릿 객체 생성. 카카오 개발자에서 생성한 템플릿 Id 입력하기!
   const shareKakao = () => {
+    // custom한 메시지이기 때문에 sendCustom 함수를 사용하여 메시지를 보내줌
     window.Kakao.Link.sendCustom({
-      templateId: 89914, // 템플릿 아이디 입력
+      templateId: 89914,
     });
   };
 
@@ -208,19 +210,19 @@ const GridContainer = styled.div`
   }
 `;
 
-const URLShareButton = styled.button`
-  width: 46.5px;
-  height: 48.5px;
-  color: white;
-  border-radius: 24px;
-  border: 0px;
-  font-weight: 800;
-  font-size: 18px;
-  cursor: pointer;
-  background-color: #7362ff;
-  
-  }
-`;
+// const URLShareButton = styled.button`
+//   width: 46.5px;
+//   height: 48.5px;
+//   color: white;
+//   border-radius: 24px;
+//   border: 0px;
+//   font-weight: 800;
+//   font-size: 18px;
+//   cursor: pointer;
+//   background-color: #7362ff;
+
+//   }
+// `;
 const KakaoShareButton = styled.a`
   cursor: pointer;
 `;
@@ -231,10 +233,9 @@ const KakaoIcon = styled.img`
   border-radius: 24px;
 `;
 
-const Type = styled.div`
-  postion: flex;
-`;
-// 미디어 쿼리
+// const Type = styled.div`
+//   postion: flex;
+// `;
 
 const ModalWrap = styled.div`
   text-align: center;
